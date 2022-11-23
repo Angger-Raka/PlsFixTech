@@ -1,6 +1,6 @@
 # firebase_chatting
 
-A new Flutter project.
+###Sekedar Nyoba aja hehehehe
 
 ## Getting Started
 
