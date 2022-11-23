@@ -1,5 +1,6 @@
 import 'package:firebase_chatting/screens/history/history_screen.dart';
 import 'package:firebase_chatting/screens/invoice/invoice_screen.dart';
+import 'package:firebase_chatting/screens/product_form/product_form_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:firebase_chatting/screens/cart/cart_screen.dart';
 import 'package:firebase_chatting/screens/complete_profile/complete_profile_screen.dart';
@@ -31,5 +32,6 @@ final Map<String, WidgetBuilder> routes = {
   ProfileScreen.routeName: (context) => ProfileScreen(),
   ChatScreen.routeName: (context) => ChatScreen(),
   HistoryScreen.routeName: (context) => HistoryScreen(),
-  InvoiceScreen.routeName: (context) => InvoiceScreen()
+  InvoiceScreen.routeName: (context) => InvoiceScreen(),
+  ProductFormScreen.routeName: (context) => ProductFormScreen()
 };

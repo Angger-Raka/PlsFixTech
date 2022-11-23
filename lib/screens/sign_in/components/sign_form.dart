@@ -82,13 +82,14 @@ class _SignFormState extends State<SignForm> {
                 print(email);
                 print(password);
                 try {
+                  removeError(error: kEmailandPassowrdInvalid);
                   await FirebaseAuth.instance.signInWithEmailAndPassword(
                       email: emailjadi, password: passwordjadi);
                   // if all are valid then go to success screen
                   KeyboardUtil.hideKeyboard(context);
                   Navigator.pushNamed(context, LoginSuccessScreen.routeName);
-                } on FirebaseAuthException catch (e) {
-                  print(e.message.toString());
+                } on FirebaseAuthException {
+                  addError(error: kEmailandPassowrdInvalid);
                 }
               }
             },

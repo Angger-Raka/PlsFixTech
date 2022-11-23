@@ -15,10 +15,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Expanded(child: DemoMessageList()),
-        inputColumn()
-      ],
+      children: [Expanded(child: DemoMessageList()), InputChat()],
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:firebase_chatting/screens/invoice/invoice_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -232,7 +233,10 @@ class transaction_deal extends StatelessWidget {
                       SizedBox(
                         width: 100,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, InvoiceScreen.routeName);
+                          },
                           child: Text('Detail'),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blue,

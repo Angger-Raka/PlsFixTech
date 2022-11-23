@@ -1,12 +1,24 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_chatting/helper/chatting_firebase.dart';
 import 'package:firebase_chatting/models/components/glowing_action_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import './chat_content.dart';
 
-class inputColumn extends StatelessWidget {
-  const inputColumn({Key? key}) : super(key: key);
+class InputChat extends StatefulWidget {
+  InputChat({Key? key}) : super(key: key);
+
+  @override
+  State<InputChat> createState() => _InputChatState();
+}
+
+class _InputChatState extends State<InputChat> {
+  final messageController = TextEditingController();
+
+  final FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +36,9 @@ class inputColumn extends StatelessWidget {
               child: Icon(CupertinoIcons.paperclip),
             ),
           ),
-          const Expanded(
+          Expanded(
             child: TextField(
+              controller: messageController,
               decoration: InputDecoration(
                 hintText: 'Klik untuk message',
               ),
@@ -40,8 +53,17 @@ class inputColumn extends StatelessWidget {
               size: 40,
               color: Colors.orange,
               icon: Icons.send_rounded,
-              onPressed: () {
-                print('PESAN DIKIRIM');
+              onPressed: () async {
+                await {
+                  addMessageClient(auth.currentUser!.email.toString(),
+                      messageController.text),
+                  print(auth.currentUser!.toString()),
+                  //remove text after send
+                  messageController.clear(),
+                  setState(() {
+                    readRealtimeFirebase();
+                  }),
+                };
               },
             ),
           )

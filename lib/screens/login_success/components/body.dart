@@ -29,9 +29,9 @@ class Body extends StatelessWidget {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 if (snapshot.data?.email != null) {
-                  return Text('SIGNED In: ${snapshot.data?.email}');
+                  return Text("SIGNED In: \n ${snapshot.data?.email}");
                 } else if (snapshot.data?.uid != null) {
-                  return Text('SIGNED In: ${snapshot.data?.uid}');
+                  return Text('SIGNED In: \n ${snapshot.data?.uid}');
                 } else {
                   return Text("You Haven't Signed in yet");
                 }
