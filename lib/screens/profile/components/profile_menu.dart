@@ -18,7 +18,7 @@ class ProfileMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: TextButton(
+      child: ElevatedButton(
         style: TextButton.styleFrom(
           primary: kPrimaryColor,
           padding: EdgeInsets.all(20),

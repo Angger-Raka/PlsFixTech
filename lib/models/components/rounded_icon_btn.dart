@@ -31,7 +31,7 @@ class RoundedIconBtn extends StatelessWidget {
             ),
         ],
       ),
-      child: TextButton(
+      child: ElevatedButton(
         style: TextButton.styleFrom(
           padding: EdgeInsets.zero,
           primary: kPrimaryColor,

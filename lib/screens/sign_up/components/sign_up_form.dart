@@ -58,10 +58,26 @@ class _SignUpFormState extends State<SignUpForm> {
                 _formKey.currentState!.save();
                 String emailjadi = email ?? "";
                 String passwordjadi = password ?? "";
-                await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                    email: emailjadi, password: passwordjadi);
+                try {
+                  await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                      email: emailjadi, password: passwordjadi);
+                  Navigator.pushNamed(context, SignInScreen.routeName);
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'weak-password') {
+                    print('The password provided is too weak.');
+                    addError(error: kShortPassError);
+                    removeError(error: kEmailAlreadyInUseError);
+                  } else if (e.code == 'email-already-in-use') {
+                    print('The account already exists for that email.');
+                    addError(
+                        error:
+                            kEmailAlreadyInUseError); //kEmailAlreadyInUseError
+                    removeError(error: kShortPassError);
+                  }
+                }
+
                 // if all are valid then go to success screen
-                Navigator.pushNamed(context, SignInScreen.routeName);
+
               }
             },
           ),
@@ -145,6 +161,9 @@ class _SignUpFormState extends State<SignUpForm> {
           removeError(error: kEmailNullError);
         } else if (emailValidatorRegExp.hasMatch(value)) {
           removeError(error: kInvalidEmailError);
+        } else if (FirebaseAuthException(code: 'email-already-in-use').code ==
+            'email-already-in-use') {
+          addError(error: kEmailAlreadyInUseError);
         }
         return null;
       },

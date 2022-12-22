@@ -24,7 +24,7 @@ class CustomAppBar extends StatelessWidget {
             SizedBox(
               height: getProportionateScreenWidth(40),
               width: getProportionateScreenWidth(40),
-              child: TextButton(
+              child: ElevatedButton(
                 style: TextButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(60),

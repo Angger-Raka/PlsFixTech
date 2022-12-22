@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_chatting/screens/validation_email/validation_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_chatting/models/components/custom_surfix_icon.dart';
@@ -85,9 +86,17 @@ class _SignFormState extends State<SignForm> {
                   removeError(error: kEmailandPassowrdInvalid);
                   await FirebaseAuth.instance.signInWithEmailAndPassword(
                       email: emailjadi, password: passwordjadi);
+                  print(FirebaseAuth.instance.currentUser!.emailVerified);
                   // if all are valid then go to success screen
-                  KeyboardUtil.hideKeyboard(context);
-                  Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                  if (FirebaseAuth.instance.currentUser!.emailVerified ==
+                      false) {
+                    KeyboardUtil.hideKeyboard(context);
+                    FirebaseAuth.instance.currentUser!.sendEmailVerification();
+                    Navigator.pushNamed(context, ValidationScreen.routeName);
+                  } else {
+                    KeyboardUtil.hideKeyboard(context);
+                    Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                  }
                 } on FirebaseAuthException {
                   addError(error: kEmailandPassowrdInvalid);
                 }
