@@ -1,6 +1,12 @@
 # firebase_chatting
 
-A new Flutter project.
+Make some simple app 
+feature
+  - Chat realtime
+  - Auth
+  - CRUD 
+
+all using Firebase :)
 
 ## Getting Started
 
