@@ -14,6 +14,7 @@ import 'package:firebase_chatting/screens/profile/profile_screen.dart';
 import 'package:firebase_chatting/screens/sign_in/sign_in_screen.dart';
 import 'package:firebase_chatting/screens/splash/splash_screen.dart';
 import 'package:firebase_chatting/screens/chat/chat_screen.dart';
+import 'package:get/get.dart';
 
 import 'screens/sign_up/sign_up_screen.dart';
 
@@ -37,3 +38,26 @@ final Map<String, WidgetBuilder> routes = {
   ProductFormScreen.routeName: (context) => ProductFormScreen(),
   ValidationScreen.routeName: (context) => ValidationScreen()
 };
+//convert routes to GetX
+
+final List<GetPage> getPages = [
+  GetPage(name: SplashScreen.routeName, page: () => SplashScreen()),
+  GetPage(name: SignInScreen.routeName, page: () => SignInScreen()),
+  GetPage(
+      name: ForgotPasswordScreen.routeName, page: () => ForgotPasswordScreen()),
+  GetPage(name: LoginSuccessScreen.routeName, page: () => LoginSuccessScreen()),
+  GetPage(name: SignUpScreen.routeName, page: () => SignUpScreen()),
+  GetPage(
+      name: CompleteProfileScreen.routeName,
+      page: () => CompleteProfileScreen()),
+  GetPage(name: OtpScreen.routeName, page: () => OtpScreen()),
+  GetPage(name: HomeScreen.routeName, page: () => HomeScreen()),
+  GetPage(name: DetailsScreen.routeName, page: () => DetailsScreen()),
+  GetPage(name: CartScreen.routeName, page: () => CartScreen()),
+  GetPage(name: ProfileScreen.routeName, page: () => ProfileScreen()),
+  GetPage(name: ChatScreen.routeName, page: () => ChatScreen()),
+  GetPage(name: HistoryScreen.routeName, page: () => HistoryScreen()),
+  GetPage(name: InvoiceScreen.routeName, page: () => InvoiceScreen()),
+  GetPage(name: ProductFormScreen.routeName, page: () => ProductFormScreen()),
+  GetPage(name: ValidationScreen.routeName, page: () => ValidationScreen())
+];

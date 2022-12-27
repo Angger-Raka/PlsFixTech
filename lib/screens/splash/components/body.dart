@@ -70,7 +70,27 @@ class _BodyState extends State<Body> {
                     DefaultButton(
                       text: "Continue",
                       press: () {
-                        Navigator.pushNamed(context, SignInScreen.routeName);
+                        Navigator.pushNamed(
+                          context,
+                          SignInScreen.routeName,
+                          // gunakan PageRouteBuilder untuk menambahkan animasi saat navigasi
+                          arguments: PageRouteBuilder(
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) =>
+                                    SignInScreen(),
+                            transitionsBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              // tambahkan animasi halus saat navigasi ke halaman berikutnya
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 5.0,
+                                  end: 10.0,
+                                ).animate(animation),
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
                       },
                     ),
                     Spacer(),
