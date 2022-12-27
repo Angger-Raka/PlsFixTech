@@ -1,18 +1,20 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_chatting/screens/validation_email/validation_screen.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_chatting/models/components/custom_surfix_icon.dart';
 import 'package:firebase_chatting/models/components/form_error.dart';
 import 'package:firebase_chatting/helper/keyboard.dart';
 import 'package:firebase_chatting/screens/forgot_password/forgot_password_screen.dart';
 import 'package:firebase_chatting/screens/login_success/login_success_screen.dart';
+import 'package:get/get.dart';
 
 import '../../../models/components/default_button.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
 class SignForm extends StatefulWidget {
+  const SignForm({Key? key}) : super(key: key);
+
   @override
   _SignFormState createState() => _SignFormState();
 }
@@ -26,6 +28,7 @@ class _SignFormState extends State<SignForm> {
 
   void addError({String? error}) {
     if (!errors.contains(error))
+      // ignore: curly_braces_in_flow_control_structures
       setState(() {
         errors.add(error);
       });
@@ -33,6 +36,7 @@ class _SignFormState extends State<SignForm> {
 
   void removeError({String? error}) {
     if (errors.contains(error))
+      // ignore: curly_braces_in_flow_control_structures
       setState(() {
         errors.remove(error);
       });
@@ -59,12 +63,11 @@ class _SignFormState extends State<SignForm> {
                   });
                 },
               ),
-              Text("Remember me"),
-              Spacer(),
+              const Text("Remember me"),
+              const Spacer(),
               GestureDetector(
-                onTap: () => Navigator.pushNamed(
-                    context, ForgotPasswordScreen.routeName),
-                child: Text(
+                onTap: () => Get.toNamed(ForgotPasswordScreen.routeName),
+                child: const Text(
                   "Forgot Password",
                   style: TextStyle(decoration: TextDecoration.underline),
                 ),
@@ -78,25 +81,23 @@ class _SignFormState extends State<SignForm> {
             press: () async {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-                String emailjadi = email ?? "";
-                String passwordjadi = password ?? "";
-                print(email);
-                print(password);
                 try {
                   removeError(error: kEmailandPassowrdInvalid);
-                  await FirebaseAuth.instance.signInWithEmailAndPassword(
-                      email: emailjadi, password: passwordjadi);
-                  print(FirebaseAuth.instance.currentUser!.emailVerified);
-                  // if all are valid then go to success screen
-                  if (FirebaseAuth.instance.currentUser!.emailVerified ==
-                      false) {
-                    KeyboardUtil.hideKeyboard(context);
-                    FirebaseAuth.instance.currentUser!.sendEmailVerification();
-                    Navigator.pushNamed(context, ValidationScreen.routeName);
-                  } else {
-                    KeyboardUtil.hideKeyboard(context);
-                    Navigator.pushNamed(context, LoginSuccessScreen.routeName);
-                  }
+                  await FirebaseAuth.instance
+                      .signInWithEmailAndPassword(
+                          email: email ?? "", password: password ?? "")
+                      .then((value) {
+                    if (FirebaseAuth.instance.currentUser!.emailVerified ==
+                        false) {
+                      KeyboardUtil.hideKeyboard(context);
+                      FirebaseAuth.instance.currentUser!
+                          .sendEmailVerification();
+                      Get.toNamed(ValidationScreen.routeName);
+                    } else {
+                      KeyboardUtil.hideKeyboard(context);
+                      Get.toNamed(LoginSuccessScreen.routeName);
+                    }
+                  });
                 } on FirebaseAuthException {
                   addError(error: kEmailandPassowrdInvalid);
                 }
@@ -118,7 +119,7 @@ class _SignFormState extends State<SignForm> {
         } else if (value.length >= 6) {
           removeError(error: kShortPassError);
         }
-        return null;
+        return;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -151,7 +152,7 @@ class _SignFormState extends State<SignForm> {
         } else if (emailValidatorRegExp.hasMatch(value)) {
           removeError(error: kInvalidEmailError);
         }
-        return null;
+        return;
       },
       validator: (value) {
         if (value!.isEmpty) {

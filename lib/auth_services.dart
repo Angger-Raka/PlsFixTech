@@ -2,11 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 class AuthServices {
-  static FirebaseAuth _auth = FirebaseAuth.instance;
+  static FirebaseAuth auth = FirebaseAuth.instance;
 
   static Future signInAnonymos() async {
     try {
-      UserCredential result = await _auth.signInAnonymously();
+      UserCredential result = await auth.signInAnonymously();
       User firebaseUser = result.user!;
 
       return firebaseUser;
@@ -18,9 +18,27 @@ class AuthServices {
   }
 
   static Future<void> signOut() async {
-    _auth.signOut();
+    auth.signOut();
   }
 
-  // static Stream<FirebaseUser> get firebaseUserStream =>
-  //     _auth.onAuthStateChanged;
+  //make function for sign in with email and password with GetX
+  static Future signInWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      UserCredential result = await auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      User firebaseUser = result.user!;
+
+      return firebaseUser;
+    } catch (e) {
+      const snackBar = SnackBar(
+        content: Text('Yay! A SnackBar!'),
+      );
+
+// Find the ScaffoldMessenger in the widget tree
+// and use it to show a SnackBar.
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      return null;
+    }
+  }
 }
