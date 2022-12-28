@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firebase_chatting/screens/home/home_screen.dart';
 import 'package:firebase_chatting/screens/profile/profile_screen.dart';
 import 'package:firebase_chatting/screens/chat/chat_screen.dart';
+import 'package:get/get.dart';
 
 import '../../constants.dart';
 import '../../enums.dart';
@@ -48,7 +49,8 @@ class CustomBottomNavBar extends StatelessWidget {
                       : inActiveIconColor,
                 ),
                 onPressed: () =>
-                    Navigator.pushNamed(context, HomeScreen.routeName),
+                    // Navigator.pushNamed(context, HomeScreen.routeName),
+                    Get.toNamed(HomeScreen.routeName),
               ),
               IconButton(
                 icon: SvgPicture.asset(
@@ -58,7 +60,8 @@ class CustomBottomNavBar extends StatelessWidget {
                       : inActiveIconColor,
                 ),
                 onPressed: () =>
-                    Navigator.pushNamed(context, ChatScreen.routeName),
+                    // Navigator.pushNamed(context, ChatScreen.routeName),
+                    Get.toNamed(ChatScreen.routeName),
               ),
               IconButton(
                 icon: SvgPicture.asset(
@@ -68,7 +71,8 @@ class CustomBottomNavBar extends StatelessWidget {
                       : inActiveIconColor,
                 ),
                 onPressed: () =>
-                    Navigator.pushNamed(context, HistoryScreen.routeName),
+                    // Navigator.pushNamed(context, HistoryScreen.routeName),
+                    Get.toNamed(HistoryScreen.routeName),
               ),
               IconButton(
                 icon: SvgPicture.asset(
@@ -77,8 +81,7 @@ class CustomBottomNavBar extends StatelessWidget {
                       ? kPrimaryColor
                       : inActiveIconColor,
                 ),
-                onPressed: () =>
-                    Navigator.pushNamed(context, ProfileScreen.routeName),
+                onPressed: () => Get.toNamed(ProfileScreen.routeName),
               ),
             ],
           )),

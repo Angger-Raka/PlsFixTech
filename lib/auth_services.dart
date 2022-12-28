@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AuthServices {
   static FirebaseAuth auth = FirebaseAuth.instance;
@@ -31,13 +33,10 @@ class AuthServices {
 
       return firebaseUser;
     } catch (e) {
-      const snackBar = SnackBar(
-        content: Text('Yay! A SnackBar!'),
-      );
-
-// Find the ScaffoldMessenger in the widget tree
-// and use it to show a SnackBar.
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      Get.snackbar("Error", e.toString(),
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.red,
+          colorText: Colors.white);
       return null;
     }
   }

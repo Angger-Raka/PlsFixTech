@@ -6,35 +6,45 @@ import 'package:firebase_chatting/size_config.dart';
 import '../../models/components/coustom_bottom_nav_bar.dart';
 
 class HistoryScreen extends StatelessWidget {
+  const HistoryScreen({Key? key}) : super(key: key);
+
   static String routeName = "/history";
   @override
   Widget build(BuildContext context) {
     // You have to call it on your starting screen
     SizeConfig().init(context);
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(
-          "History",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: getProportionateScreenWidth(20),
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.history,
-              color: Colors.black,
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.orange,
+            title: const Text('Products'),
+            bottom: const TabBar(
+              tabs: [
+                Tab(
+                  icon: Icon(Icons.pending_actions_outlined),
+                ),
+                Tab(
+                  icon: Icon(Icons.delivery_dining_outlined),
+                ),
+                Tab(
+                  icon: Icon(Icons.history_outlined),
+                ),
+              ],
             ),
           ),
-        ],
+          body: const TabBarView(
+            children: [
+              Body(),
+              Body(),
+              Body(),
+            ],
+          ),
+          bottomNavigationBar:
+              const CustomBottomNavBar(selectedMenu: MenuState.history),
+        ),
       ),
-      body: Body(),
-      bottomNavigationBar:
-          const CustomBottomNavBar(selectedMenu: MenuState.history),
     );
   }
 }
