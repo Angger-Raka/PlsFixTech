@@ -8,6 +8,7 @@ import 'package:firebase_chatting/models/components/default_button.dart';
 import 'package:firebase_chatting/models/components/form_error.dart';
 import 'package:firebase_chatting/models/components/no_account_text.dart';
 import 'package:firebase_chatting/size_config.dart';
+import 'package:get/get.dart';
 
 import '../../../constants.dart';
 
@@ -114,11 +115,17 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
                 } on FirebaseAuthException catch (e) {
                   print(e.message.toString());
                 }
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => SignInScreen()),
-                    (routes) => false);
+                Future.delayed(const Duration(seconds: 1), () {
+                  Get.snackbar(
+                    'Email sent link reset password',
+                    'Check your email for a link, see on your inbox or spam folder and login again',
+                    snackPosition: SnackPosition.TOP,
+                    backgroundColor: Colors.orange,
+                    colorText: Colors.white,
+                    duration: const Duration(seconds: 5),
+                  );
+                });
+                Get.offAllNamed(SignInScreen.routeName);
                 // Do what you want to do
               }
             },

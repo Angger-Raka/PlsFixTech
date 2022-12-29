@@ -1,16 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_chatting/helper/chatting_firebase.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:firebase_chatting/screens/chat/components/components_chat.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 
 class DemoMessageList extends StatefulWidget {
+  const DemoMessageList({Key? key}) : super(key: key);
   @override
   _DemoMessageListState createState() => _DemoMessageListState();
 }

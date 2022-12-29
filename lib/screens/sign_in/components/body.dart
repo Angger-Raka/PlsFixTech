@@ -39,12 +39,23 @@ class Body extends StatelessWidget {
                 InkWell(
                   child: Text('Login as Anonymous'),
                   onTap: () {
-                    if (FirebaseAuth.instance.currentUser == null) {
-                      FirebaseAuth.instance.signInAnonymously();
-                      Get.toNamed(LoginSuccessScreen.routeName);
-                    } else {
-                      Get.toNamed(LoginSuccessScreen.routeName);
-                    }
+                    // if (FirebaseAuth.instance.currentUser == null) {
+                    //   FirebaseAuth.instance.signInAnonymously();
+                    //   Get.toNamed(LoginSuccessScreen.routeName);
+                    // } else {
+                    //   Get.toNamed(LoginSuccessScreen.routeName);
+                    // }
+                    // add snackbar to show that feature is not available yet
+                    Future.delayed(const Duration(seconds: 1), () {
+                      Get.snackbar(
+                        'This feature is not available yet :V',
+                        'Avoid spam, Please wait for the next update',
+                        snackPosition: SnackPosition.TOP,
+                        backgroundColor: Colors.orange,
+                        colorText: Colors.white,
+                        duration: const Duration(seconds: 5),
+                      );
+                    });
                   },
                 ),
                 NoAccountText(),

@@ -20,7 +20,7 @@ class Body extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: getProportionateScreenWidth(10)),
-            const welcomeUser(),
+            const WelcomeUser(),
             const WalletBanner(),
             const DiscountBanner(),
             // Categories(),

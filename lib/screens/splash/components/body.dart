@@ -22,8 +22,7 @@ class _BodyState extends State<Body> {
       "image": "assets/images/splash_1.png"
     },
     {
-      "text":
-          "We help people conect with store \naround United State of Indonesia",
+      "text": "We help people conect with store \naround Indonesia",
       "image": "assets/images/splash_2.png"
     },
     {

@@ -30,6 +30,43 @@ class _FormProductState extends State<FormProduct> {
       child: Column(
         children: [
           Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: imagePath != null
+                  ? Container(
+                      width: 200,
+                      height: 200,
+                      child: Image.network(imagePath ?? ""),
+                    )
+                  : Container(
+                      width: 200,
+                      height: 200,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                      ),
+                      child: Center(child: Text("No Image")),
+                    )),
+          imagePath == null
+              ? ElevatedButton(
+                  onPressed: () async {
+                    File file = await getImage();
+                    imagePath = await DatabaseService.uploadImage(file);
+                    setState(() {});
+                  },
+                  child: const Text("Upload Image Here"),
+                )
+              : ElevatedButton(
+                  onPressed: () async {
+                    //delet image from storage firebase
+                    await DatabaseService.deleteImage(imagePath!);
+                    imagePath = null;
+                    setState(() {});
+                  },
+                  child: const Text("Remove Image"),
+                ),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               controller: _nameController,
@@ -78,41 +115,6 @@ class _FormProductState extends State<FormProduct> {
               },
             ),
           ),
-          //Upload image here
-          Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: imagePath != null
-                  ? Container(
-                      width: 200,
-                      height: 200,
-                      child: Image.network(imagePath ?? ""),
-                    )
-                  : Container(
-                      width: 200,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                      ),
-                      child: Center(child: Text("No Image")),
-                    )),
-          imagePath == null
-              ? ElevatedButton(
-                  onPressed: () async {
-                    File file = await getImage();
-                    imagePath = await DatabaseService.uploadImage(file);
-                    setState(() {});
-                  },
-                  child: const Text("Upload Image Here"),
-                )
-              : ElevatedButton(
-                  onPressed: () async {
-                    //delet image from storage firebase
-                    await DatabaseService.deleteImage(imagePath!);
-                    imagePath = null;
-                    setState(() {});
-                  },
-                  child: const Text("Remove Image"),
-                ),
           ElevatedButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
@@ -142,7 +144,7 @@ class _FormProductState extends State<FormProduct> {
             child: const Text("Pesan Sekarang"),
           ),
           const SizedBox(
-            height: 50,
+            height: 80,
           ),
         ],
       ),

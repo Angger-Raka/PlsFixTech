@@ -20,12 +20,9 @@ class _ChatScreenState extends State<ChatScreen> {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.orange,
         title: Text("Chat"),
         actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {},
-          ),
           IconButton(
             icon: Icon(Icons.refresh),
             onPressed: () {},

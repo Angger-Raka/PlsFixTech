@@ -102,11 +102,21 @@ void sendMessageData(String description) {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   CollectionReference message =
       firestore.collection('User').doc(getSender).collection('Message');
-  message.add({
-    'name': getSender,
-    'description': description,
-    'time': DateTime.now(),
-  });
+  if (getSender == 'anggerrakasanjayapamungkas@hmail.com') {
+    message.add({
+      'name': getSender,
+      'message_from': 'admin',
+      'description': description,
+      'time': DateTime.now(),
+    });
+  } else {
+    message.add({
+      'name': getSender,
+      'message_from': 'client',
+      'description': description,
+      'time': DateTime.now(),
+    });
+  }
 }
 
 class DatabaseService {

@@ -82,9 +82,9 @@ class MessageTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.orange,
-                borderRadius: const BorderRadius.only(
+                borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(borderRadius),
                   topRight: Radius.circular(borderRadius),
                   bottomRight: Radius.circular(borderRadius),
@@ -95,7 +95,7 @@ class MessageTile extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                   child: Text(
                     message,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                   )),
             ),
             Padding(
@@ -150,7 +150,7 @@ class MessageOwnTile extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                   child: Text(
                     message,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black,
                     ),
                   )),
@@ -173,8 +173,8 @@ class MessageOwnTile extends StatelessWidget {
   }
 }
 
-class transaction_deal extends StatelessWidget {
-  const transaction_deal({Key? key}) : super(key: key);
+class TransactionDeal extends StatelessWidget {
+  const TransactionDeal({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -187,7 +187,7 @@ class transaction_deal extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               border: Border(right: BorderSide(color: Colors.orange, width: 4)),
             ),
             child: Padding(
@@ -205,7 +205,7 @@ class transaction_deal extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Padding(
-                padding: const EdgeInsets.all(4.0),
+                padding: EdgeInsets.all(4.0),
                 child: Text(
                   'Judul Buku',
                   style: TextStyle(
@@ -221,7 +221,7 @@ class transaction_deal extends StatelessWidget {
                   style: TextStyle(color: Colors.black),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 4,
               ),
               Padding(
@@ -237,13 +237,13 @@ class transaction_deal extends StatelessWidget {
                             Navigator.pushNamed(
                                 context, InvoiceScreen.routeName);
                           },
-                          child: Text('Detail'),
+                          child: const Text('Detail'),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blue,
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       SizedBox(

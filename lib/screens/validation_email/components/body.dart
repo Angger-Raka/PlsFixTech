@@ -72,6 +72,16 @@ class Body extends StatelessWidget {
               ),
               onPressed: () {
                 FirebaseAuth.instance.currentUser!.sendEmailVerification();
+                Future.delayed(const Duration(seconds: 1), () {
+                  Get.snackbar(
+                    'Email sent',
+                    'Check your email for a link verification, see on your inbox or spam folder and login again',
+                    snackPosition: SnackPosition.TOP,
+                    backgroundColor: Colors.orange,
+                    colorText: Colors.white,
+                    duration: const Duration(seconds: 5),
+                  );
+                });
               },
               child: const Text('Resend Email'),
             ),
