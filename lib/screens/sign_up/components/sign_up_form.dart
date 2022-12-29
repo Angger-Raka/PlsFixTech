@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_chatting/models/components/custom_surfix_icon.dart';
-// import 'package:firebase_chatting/components/custom_surfix_icon.dart';
 import 'package:firebase_chatting/models/components/default_button.dart';
 import 'package:firebase_chatting/models/components/form_error.dart';
 import 'package:firebase_chatting/screens/complete_profile/complete_profile_screen.dart';
@@ -11,6 +10,7 @@ import '../../../constants.dart';
 import '../../../size_config.dart';
 
 class SignUpForm extends StatefulWidget {
+  const SignUpForm({Key? key}) : super(key: key);
   @override
   _SignUpFormState createState() => _SignUpFormState();
 }
@@ -19,7 +19,7 @@ class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
-  String? conform_password;
+  String? conformpassword;
 
   bool remember = false;
   final List<String?> errors = [];
@@ -86,14 +86,14 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildConformPassFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => conform_password = newValue,
+      onSaved: (newValue) => conformpassword = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
-        } else if (value.isNotEmpty && password == conform_password) {
+        } else if (value.isNotEmpty && password == conformpassword) {
           removeError(error: kMatchPassError);
         }
-        conform_password = value;
+        conformpassword = value;
       },
       validator: (value) {
         if (value!.isEmpty) {

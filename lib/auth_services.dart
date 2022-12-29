@@ -12,8 +12,6 @@ class AuthServices {
 
       return firebaseUser;
     } catch (e) {
-      print(e.toString());
-
       return null;
     }
   }

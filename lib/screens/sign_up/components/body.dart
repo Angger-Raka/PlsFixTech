@@ -5,6 +5,8 @@ import 'package:firebase_chatting/size_config.dart';
 import 'sign_up_form.dart';
 
 class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

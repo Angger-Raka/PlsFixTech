@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-void addDataRealtime(String name, String Keterangan) {
+void addDataRealtime(String name, String keterangan) {
   DateTime dateTimeNow = DateTime.now();
 
   Uri url = Uri.parse(
@@ -29,7 +29,7 @@ void addDataRealtime(String name, String Keterangan) {
   http.post(url,
       body: jsonEncode({
         'nama': name,
-        'keterangan': Keterangan,
+        'keterangan': keterangan,
         'Waktu': dateTimeNow.toString()
       }));
 }

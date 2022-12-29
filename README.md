@@ -1,22 +1,31 @@
-# firebase_chatting
 
-Make some simple app 
-feature
-  - Chat realtime
-  - Auth
-  - CRUD 
+# Simple-Private-Chat: The Best Solution for Private Business Communication
 
-all using Firebase :)
+Project simple-private-chat is an application that can be used by a company to privately communicate with their clients in regards to business. This application can help the company to manage the exchange of business information and assist clients in communicating with the company more easily. Using this application, the company can send messages directly to clients, send documents or files, and make phone or video conference calls with clients. The application can also help the company to manage and store records of interactions with clients, making it easier for the company to remember and manage the information needed in their business.
+## Features
 
-## Getting Started
+- Login with email verification
+- Realtime chat
+- Android / IOS (maintance)
+- Cross platform
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Authors
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- [@Angger-Raka](https://www.github.com/Angger-Raka)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Screenshots
+We Use Template and modify
+
+![App Screenshot](https://github.com/Angger-Raka/simple-chat-private/blob/master/assets/images/1.png?raw=true)
+![App Screenshot](https://github.com/Angger-Raka/simple-chat-private/blob/master/assets/images/2.png?raw=true)
+![App Screenshot](https://github.com/Angger-Raka/simple-chat-private/blob/master/assets/images/3.png?raw=true)
+
+
+
+
+## Feedback
+
+If you have any feedback, please reach out to us at anggerrakasanjayapamungkas@gmail.com
+
