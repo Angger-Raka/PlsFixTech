@@ -21,7 +21,7 @@ class WalletBanner extends StatelessWidget {
           vertical: getProportionateScreenWidth(15),
         ),
         decoration: BoxDecoration(
-          color: Color(0xFFF6625E),
+          color: const Color(0xFFF6625E),
           borderRadius: BorderRadius.circular(15),
         ),
         child: Row(
@@ -58,7 +58,7 @@ class WalletOptions extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.white),
-                borderRadius: BorderRadius.all(Radius.circular(5))),
+                borderRadius: const BorderRadius.all(Radius.circular(5))),
             child: Icon(
               icon,
               size: 28,
@@ -67,7 +67,7 @@ class WalletOptions extends StatelessWidget {
           ),
           Text(
             title,
-            style: TextStyle(fontSize: 15, color: Colors.white),
+            style: const TextStyle(fontSize: 15, color: Colors.white),
           )
         ],
       ),

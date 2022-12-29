@@ -1,9 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:firebase_chatting/screens/product_form/product_form_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Product extends StatelessWidget {
   const Product({
@@ -23,7 +20,7 @@ class Product extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {},
-      child: Container(
+      child: SizedBox(
           width: 200,
           height: 500,
           child: Column(
@@ -38,10 +35,10 @@ class Product extends StatelessWidget {
               ),
               Text(
                 name,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
               ),
               Padding(
-                padding: EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(12.0),
                 child: Center(child: Text(discription)),
               ),
               ElevatedButton(
@@ -113,8 +110,8 @@ class _ProductSliderState extends State<ProductSlider> {
           options: CarouselOptions(
             height: 400.0,
             autoPlay: true,
-            autoPlayInterval: Duration(seconds: 3),
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayInterval: const Duration(seconds: 3),
+            autoPlayAnimationDuration: const Duration(milliseconds: 800),
             autoPlayCurve: Curves.fastOutSlowIn,
             pauseAutoPlayOnTouch: true,
             aspectRatio: 2.0,
@@ -126,7 +123,7 @@ class _ProductSliderState extends State<ProductSlider> {
           ),
           items: cardList.map((card) {
             return Builder(builder: (BuildContext context) {
-              return Container(
+              return SizedBox(
                 height: MediaQuery.of(context).size.height * 0.30,
                 width: MediaQuery.of(context).size.width,
                 child: Card(

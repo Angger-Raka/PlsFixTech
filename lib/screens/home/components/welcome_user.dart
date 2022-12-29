@@ -1,8 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class WelcomeUser extends StatelessWidget {
   const WelcomeUser({Key? key}) : super(key: key);
@@ -12,7 +9,7 @@ class WelcomeUser extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          Text(
+          const Text(
             "Welcome Back,",
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.w900),
           ),
@@ -25,10 +22,10 @@ class WelcomeUser extends StatelessWidget {
                 } else if (snapshot.data?.uid != null) {
                   return Text('${snapshot.data?.uid}');
                 } else {
-                  return Text("You Haven't Signed in yet");
+                  return const Text("You Haven't Signed in yet");
                 }
               } else {
-                return Text("You Haven't Signed in yet");
+                return const Text("You Haven't Signed in yet");
               }
             },
           ),

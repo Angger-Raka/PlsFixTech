@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_chatting/models/components/socal_card.dart';
 import 'package:firebase_chatting/constants.dart';
 import 'package:firebase_chatting/size_config.dart';
 
@@ -19,7 +18,7 @@ class Body extends StatelessWidget {
               children: [
                 SizedBox(height: SizeConfig.screenHeight * 0.04), // 4%
                 Text("Register Account", style: headingStyle),
-                Text(
+                const Text(
                   "Complete your details or continue \nwith social media",
                   textAlign: TextAlign.center,
                 ),

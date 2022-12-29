@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_chatting/screens/sign_in/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_chatting/models/components/custom_surfix_icon.dart';
 // import 'package:firebase_chatting/components/custom_surfix_icon.dart';
@@ -26,17 +25,19 @@ class _SignUpFormState extends State<SignUpForm> {
   final List<String?> errors = [];
 
   void addError({String? error}) {
-    if (!errors.contains(error))
+    if (!errors.contains(error)) {
       setState(() {
         errors.add(error);
       });
+    }
   }
 
   void removeError({String? error}) {
-    if (errors.contains(error))
+    if (errors.contains(error)) {
       setState(() {
         errors.remove(error);
       });
+    }
   }
 
   @override
@@ -65,11 +66,9 @@ class _SignUpFormState extends State<SignUpForm> {
                   Get.toNamed(CompleteProfileScreen.routeName);
                 } on FirebaseAuthException catch (e) {
                   if (e.code == 'weak-password') {
-                    print('The password provided is too weak.');
                     addError(error: kShortPassError);
                     removeError(error: kEmailAlreadyInUseError);
                   } else if (e.code == 'email-already-in-use') {
-                    print('The account already exists for that email.');
                     addError(
                         error:
                             kEmailAlreadyInUseError); //kEmailAlreadyInUseError
@@ -163,7 +162,7 @@ class _SignUpFormState extends State<SignUpForm> {
             'email-already-in-use') {
           addError(error: kEmailAlreadyInUseError);
         }
-        return null;
+        return;
       },
       validator: (value) {
         if (value!.isEmpty) {

@@ -33,15 +33,15 @@ class Body extends StatelessWidget {
                 } else if (snapshot.data?.uid != null) {
                   return Text('SIGNED In: \n ${snapshot.data?.uid}');
                 } else {
-                  return Text("You Haven't Signed in yet");
+                  return const Text("You Haven't Signed in yet");
                 }
               } else {
-                return Text("You Haven't Signed in yet");
+                return const Text("You Haven't Signed in yet");
               }
             },
           ),
         ),
-        Spacer(),
+        const Spacer(),
         SizedBox(
           width: SizeConfig.screenWidth * 0.6,
           child: DefaultButton(
@@ -52,7 +52,7 @@ class Body extends StatelessWidget {
             },
           ),
         ),
-        Spacer(),
+        const Spacer(),
       ],
     );
   }

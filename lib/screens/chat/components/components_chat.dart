@@ -1,9 +1,5 @@
 import 'package:firebase_chatting/screens/invoice/invoice_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class DataLabel extends StatelessWidget {
   const DataLabel({
@@ -19,7 +15,7 @@ class DataLabel extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 32),
         child: Container(
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
         ),
       ),
     );
@@ -181,7 +177,7 @@ class TransactionDeal extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(color: Colors.orange, width: 4),
-          borderRadius: BorderRadius.all(Radius.circular(15))),
+          borderRadius: const BorderRadius.all(Radius.circular(15))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -250,7 +246,7 @@ class TransactionDeal extends StatelessWidget {
                         width: 100,
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: Text('Buy'),
+                          child: const Text('Buy'),
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.red),
                         ),

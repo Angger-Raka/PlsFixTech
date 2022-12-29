@@ -1,5 +1,4 @@
 import 'package:firebase_chatting/enums.dart';
-import 'package:firebase_chatting/helper/chatting_firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_chatting/screens/chat/components/body.dart';
 import 'package:firebase_chatting/size_config.dart';
@@ -21,15 +20,15 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        title: Text("Chat"),
+        title: const Text("Chat"),
         actions: [
           IconButton(
-            icon: Icon(Icons.refresh),
+            icon: const Icon(Icons.refresh),
             onPressed: () {},
           ),
         ],
       ),
-      body: Body(),
+      body: const Body(),
       bottomNavigationBar:
           const CustomBottomNavBar(selectedMenu: MenuState.message),
     );

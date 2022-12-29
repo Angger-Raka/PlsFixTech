@@ -1,5 +1,4 @@
 import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -8,7 +7,7 @@ import './client.dart';
 DatabaseReference ref = FirebaseDatabase.instance.ref("users/123");
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
   addDataRealtime('angger', 'test1');
 }
 
@@ -37,7 +36,7 @@ void addDataRealtime(String name, String Keterangan) {
 
 ///////////////////////////////////////////////
 class client with ChangeNotifier {
-  List<Client> _allPlayer = [];
+  final List<Client> _allPlayer = [];
 
   List<Client> get allPlayer => _allPlayer;
 

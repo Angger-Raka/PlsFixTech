@@ -1,12 +1,8 @@
 import 'dart:io';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_chatting/helper/chatting_firebase.dart';
 import 'package:firebase_chatting/screens/history/history_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:image_picker/image_picker.dart';
 
 class FormProduct extends StatefulWidget {
@@ -19,6 +15,7 @@ class FormProduct extends StatefulWidget {
 class _FormProductState extends State<FormProduct> {
   @override
   String? imagePath;
+  @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
     final _nameController = TextEditingController();
@@ -32,7 +29,7 @@ class _FormProductState extends State<FormProduct> {
           Padding(
               padding: const EdgeInsets.all(8.0),
               child: imagePath != null
-                  ? Container(
+                  ? SizedBox(
                       width: 200,
                       height: 200,
                       child: Image.network(imagePath ?? ""),
@@ -43,7 +40,7 @@ class _FormProductState extends State<FormProduct> {
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.black),
                       ),
-                      child: Center(child: Text("No Image")),
+                      child: const Center(child: Text("No Image")),
                     )),
           imagePath == null
               ? ElevatedButton(
@@ -63,14 +60,14 @@ class _FormProductState extends State<FormProduct> {
                   },
                   child: const Text("Remove Image"),
                 ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               controller: _nameController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: "Nama Produk",
                 hintText: "Masukan Nama Produk",
               ),
@@ -86,7 +83,7 @@ class _FormProductState extends State<FormProduct> {
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               controller: _priceController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: "Harga Produk",
                 hintText: "Masukan Harga Produk",
               ),
@@ -103,7 +100,7 @@ class _FormProductState extends State<FormProduct> {
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               controller: _descriptionController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: "Deskripsi Produk",
                 hintText: "Masukan Deskripsi Produk",
               ),
@@ -129,7 +126,7 @@ class _FormProductState extends State<FormProduct> {
                         content: Text('Data berhasil disimpan')));
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => HistoryScreen()),
+                      MaterialPageRoute(builder: (context) => const HistoryScreen()),
                     );
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(

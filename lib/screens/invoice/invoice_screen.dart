@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_chatting/enums.dart';
 
 import 'components/body.dart';
 

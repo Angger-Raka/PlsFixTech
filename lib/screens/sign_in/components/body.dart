@@ -1,5 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_chatting/screens/login_success/login_success_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_chatting/models/components/no_account_text.dart';
 import 'package:get/get.dart';
@@ -37,7 +35,7 @@ class Body extends StatelessWidget {
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
                 SizedBox(height: getProportionateScreenHeight(20)),
                 InkWell(
-                  child: Text('Login as Anonymous'),
+                  child: const Text('Login as Anonymous'),
                   onTap: () {
                     // if (FirebaseAuth.instance.currentUser == null) {
                     //   FirebaseAuth.instance.signInAnonymously();
@@ -58,7 +56,7 @@ class Body extends StatelessWidget {
                     });
                   },
                 ),
-                NoAccountText(),
+                const NoAccountText(),
               ],
             ),
           ),

@@ -35,7 +35,7 @@ class _InputChatState extends State<InputChat> {
           Expanded(
             child: TextField(
               controller: messageController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Klik untuk message',
               ),
             ),

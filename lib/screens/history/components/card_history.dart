@@ -63,7 +63,7 @@ class product_history extends StatelessWidget {
                       child: Container(
                           decoration: BoxDecoration(
                               color: colors,
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                   bottomRight: Radius.circular(12),
                                   bottomLeft: Radius.circular(12))),
                           child: Padding(
@@ -72,7 +72,7 @@ class product_history extends StatelessWidget {
                             child: Text(
                               status,
                               style:
-                                  TextStyle(fontSize: 14, color: Colors.white),
+                                  const TextStyle(fontSize: 14, color: Colors.white),
                             ),
                           )),
                     ),
@@ -86,14 +86,14 @@ class product_history extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       height: 62,
                       child: Padding(
-                        padding: EdgeInsets.only(left: 8),
+                        padding: const EdgeInsets.only(left: 8),
                         child: Text(
                           description,
                           // overflow: TextOverflow.clip,
-                          style: TextStyle(color: Colors.black),
+                          style: const TextStyle(color: Colors.black),
                         ),
                       ),
                     ),
@@ -106,10 +106,10 @@ class product_history extends StatelessWidget {
                                 top: BorderSide(color: colors, width: 4)),
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(3.0),
+                            padding: const EdgeInsets.all(3.0),
                             child: Text(
                               price.toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.green,
                                 fontSize: 14,
                               ),

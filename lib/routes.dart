@@ -17,7 +17,7 @@ import 'package:get/get.dart';
 import 'screens/sign_up/sign_up_screen.dart';
 
 final List<GetPage> getPages = [
-  GetPage(name: SplashScreen.routeName, page: () => SplashScreen()),
+  GetPage(name: SplashScreen.routeName, page: () => const SplashScreen()),
   GetPage(name: SignInScreen.routeName, page: () => SignInScreen()),
   GetPage(
       name: ForgotPasswordScreen.routeName, page: () => ForgotPasswordScreen()),
@@ -32,7 +32,7 @@ final List<GetPage> getPages = [
   GetPage(name: CartScreen.routeName, page: () => CartScreen()),
   GetPage(name: ProfileScreen.routeName, page: () => ProfileScreen()),
   GetPage(name: ChatScreen.routeName, page: () => ChatScreen()),
-  GetPage(name: HistoryScreen.routeName, page: () => HistoryScreen()),
+  GetPage(name: HistoryScreen.routeName, page: () => const HistoryScreen()),
   GetPage(name: InvoiceScreen.routeName, page: () => InvoiceScreen()),
   GetPage(name: ProductFormScreen.routeName, page: () => ProductFormScreen()),
   GetPage(name: ValidationScreen.routeName, page: () => ValidationScreen())

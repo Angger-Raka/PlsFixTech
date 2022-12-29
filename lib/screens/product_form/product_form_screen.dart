@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_chatting/models/components/coustom_bottom_nav_bar.dart';
-import 'package:firebase_chatting/enums.dart';
 
 import 'components/body.dart';
 
@@ -13,7 +11,7 @@ class ProductFormScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Product Form"),
       ),
-      body: Body(),
+      body: const Body(),
     );
   }
 }
