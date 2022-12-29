@@ -135,8 +135,12 @@ class DatabaseService {
     return urlDownload;
   }
 
-  static void sendProduct(String nameProdut, int priceProduct,
-      String description, String? imageProduct) {
+  static void sendProduct(
+    String nameProdut,
+    int priceProduct,
+    String description,
+    String? imageProduct,
+  ) {
     final FirebaseAuth auth = FirebaseAuth.instance;
     final getSender = auth.currentUser!.email.toString();
     FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -149,6 +153,26 @@ class DatabaseService {
       'description': description,
       'status': 'Pending',
       'image': imageProduct,
+      'time': DateTime.now(),
+    });
+  }
+
+  static void createUserProfile(
+    String firstName,
+    String lastName,
+    String phone,
+    String address,
+  ) {
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final getSender = auth.currentUser!.email.toString();
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    CollectionReference user =
+        firestore.collection('User').doc(getSender).collection('Profile');
+    user.add({
+      'first': firstName,
+      'last name': lastName,
+      'phone': phone,
+      'address': address,
       'time': DateTime.now(),
     });
   }

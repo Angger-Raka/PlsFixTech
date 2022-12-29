@@ -6,6 +6,7 @@ import 'package:firebase_chatting/models/components/custom_surfix_icon.dart';
 import 'package:firebase_chatting/models/components/default_button.dart';
 import 'package:firebase_chatting/models/components/form_error.dart';
 import 'package:firebase_chatting/screens/complete_profile/complete_profile_screen.dart';
+import 'package:get/get.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -61,7 +62,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 try {
                   await FirebaseAuth.instance.createUserWithEmailAndPassword(
                       email: emailjadi, password: passwordjadi);
-                  Navigator.pushNamed(context, SignInScreen.routeName);
+                  Get.toNamed(CompleteProfileScreen.routeName);
                 } on FirebaseAuthException catch (e) {
                   if (e.code == 'weak-password') {
                     print('The password provided is too weak.');
@@ -75,9 +76,6 @@ class _SignUpFormState extends State<SignUpForm> {
                     removeError(error: kShortPassError);
                   }
                 }
-
-                // if all are valid then go to success screen
-
               }
             },
           ),

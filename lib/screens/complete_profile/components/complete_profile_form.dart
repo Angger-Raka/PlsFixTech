@@ -1,3 +1,6 @@
+import 'package:firebase_chatting/helper/chatting_firebase.dart';
+import 'package:firebase_chatting/screens/sign_in/sign_in_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_chatting/models/components/custom_surfix_icon.dart';
 import 'package:firebase_chatting/models/components/default_button.dart';
@@ -51,9 +54,20 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
             text: "continue",
-            press: () {
+            press: () async {
               if (_formKey.currentState!.validate()) {
-                Navigator.pushNamed(context, OtpScreen.routeName);
+                _formKey.currentState!.save();
+                try {
+                  DatabaseService.createUserProfile(
+                    firstName ?? "",
+                    lastName ?? "",
+                    phoneNumber ?? "",
+                    address ?? "",
+                  );
+                  Navigator.pushNamed(context, SignInScreen.routeName);
+                } on FirebaseException catch (e) {
+                  print(e);
+                }
               }
             },
           ),
@@ -78,7 +92,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         }
         return null;
       },
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         labelText: "Address",
         hintText: "Enter your phone address",
         // If  you are using latest version of flutter then lable text and hint text shown like this

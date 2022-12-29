@@ -90,8 +90,6 @@ class _SignFormState extends State<SignForm> {
                     if (FirebaseAuth.instance.currentUser!.emailVerified ==
                         false) {
                       KeyboardUtil.hideKeyboard(context);
-                      FirebaseAuth.instance.currentUser!
-                          .sendEmailVerification();
                       Get.toNamed(ValidationScreen.routeName);
                     } else {
                       KeyboardUtil.hideKeyboard(context);
