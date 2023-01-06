@@ -35,7 +35,8 @@ class Product extends StatelessWidget {
               ),
               Text(
                 name,
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
               ),
               Padding(
                 padding: const EdgeInsets.all(12.0),
@@ -105,7 +106,16 @@ class _ProductSliderState extends State<ProductSlider> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(children: [
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const Padding(
+          padding: EdgeInsets.only(left: 18),
+          child: Text(
+            'Our Services',
+            style: TextStyle(
+                fontSize: 18, fontWeight: FontWeight.w400, color: Colors.black),
+            textAlign: TextAlign.start,
+          ),
+        ),
         CarouselSlider(
           options: CarouselOptions(
             height: 400.0,
@@ -123,11 +133,19 @@ class _ProductSliderState extends State<ProductSlider> {
           ),
           items: cardList.map((card) {
             return Builder(builder: (BuildContext context) {
-              return SizedBox(
-                height: MediaQuery.of(context).size.height * 0.30,
-                width: MediaQuery.of(context).size.width,
-                child: Card(
-                  child: card,
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.30,
+                  width: MediaQuery.of(context).size.width,
+                  child: Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    color: Color.fromARGB(255, 239, 239, 239),
+                    child: card,
+                  ),
                 ),
               );
             });

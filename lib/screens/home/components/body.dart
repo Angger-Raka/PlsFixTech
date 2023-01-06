@@ -3,6 +3,7 @@ import 'package:firebase_chatting/screens/home/components/welcome_user.dart';
 import 'package:flutter/material.dart';
 
 import '../../../size_config.dart';
+import './popular_product.dart';
 import 'discount_banner.dart';
 import 'u_wallet.dart';
 
@@ -20,9 +21,9 @@ class Body extends StatelessWidget {
             // Categories(),
             // SpecialOffers(),
             // SizedBox(height: getProportionateScreenWidth(30)),
-            // PopularProducts(),
+            const ProductSlider(),
+            PopularProducts(),
             // SizedBox(height: getProportionateScreenWidth(30)),
-            const ProductSlider()
           ],
         ),
       ),

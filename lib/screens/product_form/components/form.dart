@@ -63,6 +63,27 @@ class _FormProductState extends State<FormProduct> {
           const SizedBox(
             height: 20,
           ),
+          // make dropdown button of category [Service Delivery, Selling, exchange]
+          DropdownButton(
+            items: const [
+              DropdownMenuItem(
+                child: Text("Service Delivery"),
+                value: "Service Delivery",
+              ),
+              DropdownMenuItem(
+                child: Text("Selling"),
+                value: "Selling",
+              ),
+              DropdownMenuItem(
+                child: Text("Exchange"),
+                value: "Exchange",
+              ),
+            ],
+            onChanged: (value) {
+              print(value);
+            },
+            hint: Text("Select Category"),
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
@@ -126,7 +147,8 @@ class _FormProductState extends State<FormProduct> {
                         content: Text('Data berhasil disimpan')));
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => const HistoryScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => const HistoryScreen()),
                     );
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(

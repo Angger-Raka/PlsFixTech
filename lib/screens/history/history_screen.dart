@@ -4,6 +4,9 @@ import 'package:firebase_chatting/screens/history/components/body.dart';
 import 'package:firebase_chatting/size_config.dart';
 
 import '../../models/components/coustom_bottom_nav_bar.dart';
+import 'components/tab_delivery.dart';
+import 'components/tab_history.dart';
+import 'components/tab_pending.dart';
 
 class HistoryScreen extends StatelessWidget {
   const HistoryScreen({Key? key}) : super(key: key);
@@ -36,9 +39,9 @@ class HistoryScreen extends StatelessWidget {
           ),
           body: const TabBarView(
             children: [
-              Body(),
-              Body(),
-              Body(),
+              TabPending(),
+              TabDelivery(),
+              TabHistory(),
             ],
           ),
           bottomNavigationBar:

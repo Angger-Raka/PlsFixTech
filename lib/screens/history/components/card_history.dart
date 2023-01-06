@@ -27,7 +27,7 @@ class product_history extends StatelessWidget {
       colors = Colors.orange;
     } else if (status == 'Canceled') {
       colors = Colors.red;
-    } else if (status == 'Completed') {
+    } else if (status == 'History') {
       colors = Colors.green;
     }
 
@@ -50,7 +50,8 @@ class product_history extends StatelessWidget {
                 child: Image.network(
                   image,
                   width: 100,
-                  height: 140,
+                  height: 125,
+                  fit: BoxFit.contain,
                 ),
               ),
               Expanded(
@@ -71,8 +72,8 @@ class product_history extends StatelessWidget {
                                 right: 8, left: 8, bottom: 5),
                             child: Text(
                               status,
-                              style:
-                                  const TextStyle(fontSize: 14, color: Colors.white),
+                              style: const TextStyle(
+                                  fontSize: 14, color: Colors.white),
                             ),
                           )),
                     ),
@@ -81,13 +82,14 @@ class product_history extends StatelessWidget {
                       child: Text(
                         name,
                         style: const TextStyle(
+                          fontSize: 18,
                           color: Colors.black,
                           fontWeight: FontWeight.w900,
                         ),
                       ),
                     ),
                     SizedBox(
-                      height: 62,
+                      height: 50,
                       child: Padding(
                         padding: const EdgeInsets.only(left: 8),
                         child: Text(
@@ -97,24 +99,27 @@ class product_history extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Container(
-                          decoration: BoxDecoration(
-                            border: Border(
-                                left: BorderSide(color: colors, width: 4),
-                                top: BorderSide(color: colors, width: 4)),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(3.0),
-                            child: Text(
-                              price.toString(),
-                              style: const TextStyle(
-                                color: Colors.green,
-                                fontSize: 14,
-                              ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8),
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Container(
+                            decoration: BoxDecoration(
+                              border: Border(
+                                  left: BorderSide(color: colors, width: 4),
+                                  top: BorderSide(color: colors, width: 4)),
                             ),
-                          )),
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: Text(
+                                price.toString(),
+                                style: const TextStyle(
+                                  color: Colors.green,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            )),
+                      ),
                     )
                   ],
                 ),
