@@ -4,14 +4,14 @@ import 'package:firebase_chatting/screens/history/components/card_history.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class TabHistory extends StatefulWidget {
-  const TabHistory({Key? key}) : super(key: key);
+class TabNeedToPlay extends StatefulWidget {
+  const TabNeedToPlay({Key? key}) : super(key: key);
 
   @override
-  State<TabHistory> createState() => _TabHistoryState();
+  State<TabNeedToPlay> createState() => _TabNeedToPlayState();
 }
 
-class _TabHistoryState extends State<TabHistory> {
+class _TabNeedToPlayState extends State<TabNeedToPlay> {
   @override
   Widget build(BuildContext context) {
     final FirebaseAuth auth = FirebaseAuth.instance;
@@ -38,7 +38,7 @@ class _TabHistoryState extends State<TabHistory> {
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
             Map<String, dynamic> data =
                 document.data()! as Map<String, dynamic>;
-            if (data['status'] == 'History') {
+            if (data['status'] == 'Need to pay') {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: product_history(

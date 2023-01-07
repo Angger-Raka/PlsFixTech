@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // This is the best practice
 import '../components/chat_content.dart';
+import 'notification.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -11,7 +12,17 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
-      children: const [Expanded(child: DemoMessageList()), InputChat()],
+      children: [
+        Expanded(
+          child: Stack(
+            children: const [
+              DemoMessageList(),
+              NotificationListSlider(),
+            ],
+          ),
+        ),
+        const InputChat()
+      ],
     );
   }
 }

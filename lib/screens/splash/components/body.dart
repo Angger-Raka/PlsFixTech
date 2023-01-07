@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_chatting/constants.dart';
 import 'package:firebase_chatting/screens/sign_in/sign_in_screen.dart';
@@ -70,7 +71,8 @@ class _BodyState extends State<Body> {
                     const Spacer(flex: 3),
                     DefaultButton(
                       text: "Continue",
-                      press: () {
+                      press: () async {
+                        await FirebaseAuth.instance.signOut();
                         Get.toNamed(SignInScreen.routeName);
                       },
                     ),

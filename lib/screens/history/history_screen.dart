@@ -1,4 +1,5 @@
 import 'package:firebase_chatting/enums.dart';
+import 'package:firebase_chatting/screens/history/components/tab_dp.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_chatting/screens/history/components/body.dart';
 import 'package:firebase_chatting/size_config.dart';
@@ -17,8 +18,9 @@ class HistoryScreen extends StatelessWidget {
     // You have to call it on your starting screen
     SizeConfig().init(context);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: DefaultTabController(
-        length: 3,
+        length: 4,
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.orange,
@@ -27,6 +29,9 @@ class HistoryScreen extends StatelessWidget {
               tabs: [
                 Tab(
                   icon: Icon(Icons.pending_actions_outlined),
+                ),
+                Tab(
+                  icon: Icon(Icons.monetization_on_outlined),
                 ),
                 Tab(
                   icon: Icon(Icons.delivery_dining_outlined),
@@ -40,6 +45,7 @@ class HistoryScreen extends StatelessWidget {
           body: const TabBarView(
             children: [
               TabPending(),
+              TabNeedToPlay(),
               TabDelivery(),
               TabHistory(),
             ],
