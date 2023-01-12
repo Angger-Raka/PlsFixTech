@@ -7,7 +7,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: const [preview_product(), invoice_content()],
+      children: const [PreviewProduct()],
     );
   }
 }

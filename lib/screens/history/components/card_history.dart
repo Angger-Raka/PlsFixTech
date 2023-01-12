@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class product_history extends StatelessWidget {
   const product_history({
@@ -34,7 +35,15 @@ class product_history extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 8),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Get.toNamed('/invoice', arguments: {
+            'name': name,
+            'status': status,
+            'description': description,
+            'price': price,
+            'image': image,
+          });
+        },
         child: Container(
           decoration: BoxDecoration(
               border: Border.all(color: colors, width: 4),

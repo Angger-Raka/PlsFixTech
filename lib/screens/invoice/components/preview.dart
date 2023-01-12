@@ -1,54 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:pinch_zoom/pinch_zoom.dart';
 
-class preview_product extends StatelessWidget {
-  const preview_product({Key? key}) : super(key: key);
+class PreviewProduct extends StatelessWidget {
+  const PreviewProduct({superKey}) : super(key: superKey);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250,
-      decoration:
-          BoxDecoration(border: Border.all(color: Colors.black, width: 2)),
-      child: Padding(
-        padding: const EdgeInsets.all(5.0),
-        child: Image.asset('assets/images/sampul_buku.jpg'),
+      height: 300,
+      decoration: BoxDecoration(
+        color: Colors.red,
+        borderRadius: BorderRadius.circular(10),
       ),
-    );
-  }
-}
-
-class invoice_content extends StatelessWidget {
-  const invoice_content({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      padding: const EdgeInsets.all(20.0),
-      child: Table(
-        border: TableBorder.all(color: Colors.black),
-        children: const [
-          TableRow(children: [
-            Text('Spesifikasi'),
-            Text('Jumlah'),
-            Text('Total'),
-          ]),
-          TableRow(children: [
-            Text('Cell 1'),
-            Text('Cell 2'),
-            Text('Cell 3'),
-          ]),
-          TableRow(children: [
-            Text('Cell 1'),
-            Text('Cell 2'),
-            Text('Cell 3'),
-          ]),
-          TableRow(children: [
-            Text('Cell 1'),
-            Text('Cell 2'),
-            Text('Cell 3'),
-          ]),
-        ],
+      //make image Part of the screen
+      child: PinchZoom(
+        child: Image.network(
+          'https://placekitten.com/640/500',
+          height: 300,
+        ),
+        resetDuration: const Duration(milliseconds: 100),
+        maxScale: 2.5,
+        onZoomStart: () {
+          print('Start zooming');
+        },
+        onZoomEnd: () {
+          print('Stop zooming');
+        },
       ),
     );
   }

@@ -49,6 +49,8 @@ dependencies:
   url_launcher: ^6.1.7
   get: ^4.6.5
   flutter_launcher_icons: ^0.11.0
+  pinch_zoom: ^1.0.0
+
 
 flutter_icons:
   android: "launcher_icon"

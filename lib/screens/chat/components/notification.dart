@@ -54,15 +54,12 @@ class NotificationListSlider extends StatelessWidget {
                   if (data['status'] == 'Pending' ||
                       data['status'] == 'Delivered' ||
                       data['status'] == 'Need to pay') {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: NotoficationCard(
-                        name: data['product'],
-                        status: data['status'],
-                        description: data['description'],
-                        price: data['price'],
-                        image: data['image'].toString(),
-                      ),
+                    return NotoficationCard(
+                      name: data['product'],
+                      status: data['status'],
+                      description: data['description'],
+                      price: data['price'],
+                      image: data['image'].toString(),
                     );
                   } else {
                     return Container();

@@ -27,11 +27,11 @@ class Product extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(4.0),
                 child: image,
               ),
               const SizedBox(
-                height: 5,
+                height: 2,
               ),
               Text(
                 name,
