@@ -1,3 +1,4 @@
+import 'package:firebase_chatting/screens/invoice/components/content.dart';
 import 'package:firebase_chatting/screens/invoice/components/preview.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -6,8 +7,10 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: const [PreviewProduct()],
+    return SafeArea(
+      child: Column(
+        children: const [PreviewProduct(), ContentInvoice()],
+      ),
     );
   }
 }

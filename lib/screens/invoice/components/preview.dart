@@ -6,26 +6,29 @@ class PreviewProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 300,
-      decoration: BoxDecoration(
-        color: Colors.red,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      //make image Part of the screen
-      child: PinchZoom(
-        child: Image.network(
-          'https://placekitten.com/640/500',
-          height: 300,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 280,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: Colors.black, width: 2),
         ),
-        resetDuration: const Duration(milliseconds: 100),
-        maxScale: 2.5,
-        onZoomStart: () {
-          print('Start zooming');
-        },
-        onZoomEnd: () {
-          print('Stop zooming');
-        },
+        //make image Part of the screen
+        child: PinchZoom(
+          child: Image.network(
+            'https://placekitten.com/640/500',
+            height: 300,
+          ),
+          resetDuration: const Duration(milliseconds: 100),
+          maxScale: 2.5,
+          onZoomStart: () {
+            print('Start zooming');
+          },
+          onZoomEnd: () {
+            print('Stop zooming');
+          },
+        ),
       ),
     );
   }
