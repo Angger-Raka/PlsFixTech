@@ -68,9 +68,9 @@ List cardList = [
       'assets/images/splash_1.png',
       width: 130,
     ),
-    name: "PRODUCT 1",
+    name: "Cleaning and Repaste",
     discription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "A service designed to clean dust and dirt from electronic device components, such as PCs and laptops and repaste thermal paste to improve heat dissipation and increase the performance of the device. This service can improve device performance, reduce the risk of damage and extend the lifespan of the device.",
     nameRoute: ProductFormScreen.routeName,
   ),
   Product(
@@ -78,9 +78,9 @@ List cardList = [
       'assets/images/splash_2.png',
       width: 130,
     ),
-    name: "PRODUCT 2",
+    name: "Repair",
     discription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "A repair service that aims to fix issues on electronic devices, such as hardware or software problems. This service can repair physical damage, such as a broken screen, and software issues, such as viruses or performance problems.",
     nameRoute: ProductFormScreen.routeName,
   ),
   Product(
@@ -88,9 +88,19 @@ List cardList = [
       'assets/images/splash_3.png',
       width: 130,
     ),
-    name: "PRODUCT 3",
+    name: "Upgrade",
     discription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "A service to enhance the performance of electronic devices by replacing components such as RAM, hard drive, or graphics card. This service can increase the capabilities of the device and make it faster and more responsive.",
+    nameRoute: ProductFormScreen.routeName,
+  ),
+  Product(
+    image: Image.asset(
+      'assets/images/splash_2.png',
+      width: 130,
+    ),
+    name: "Trade-in",
+    discription:
+        "layanan yang memungkinkan pelanggan untuk menukar perangkat lama mereka dengan perangkat baru. Pelanggan dapat mengirimkan perangkat lama mereka ke kami dan kami akan memberikan harga tukar tambah yang sesuai.",
     nameRoute: ProductFormScreen.routeName,
   ),
 ];

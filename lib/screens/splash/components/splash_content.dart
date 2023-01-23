@@ -17,16 +17,22 @@ class SplashContent extends StatelessWidget {
       children: <Widget>[
         const Spacer(),
         Text(
-          "AR-Shop",
+          "PlsFixTech",
           style: TextStyle(
             fontSize: getProportionateScreenWidth(36),
             color: kPrimaryColor,
             fontWeight: FontWeight.bold,
           ),
         ),
-        Text(
-          text!,
-          textAlign: TextAlign.center,
+        Padding(
+          padding: const EdgeInsets.only(
+            right: 20,
+            left: 20,
+          ),
+          child: Text(
+            text!,
+            textAlign: TextAlign.center,
+          ),
         ),
         const Spacer(flex: 2),
         Image.asset(

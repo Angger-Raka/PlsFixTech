@@ -35,34 +35,6 @@ class _BodyState extends State<Body> {
               );
             },
           ),
-          // ProfileMenu(
-          //   text: "Notifications",
-          //   icon: "assets/icons/Bell.svg",
-          //   press: () {
-          //     Get.snackbar(
-          //       'Feature not available yet',
-          //       'This feature is not available yet, please wait for the next update',
-          //       snackPosition: SnackPosition.TOP,
-          //       backgroundColor: Colors.orange,
-          //       colorText: Colors.white,
-          //       duration: const Duration(seconds: 2),
-          //     );
-          //   },
-          // ),
-          // ProfileMenu(
-          //   text: "Settings",
-          //   icon: "assets/icons/Settings.svg",
-          //   press: () {
-          //     Get.snackbar(
-          //       'Feature not available yet',
-          //       'This feature is not available yet, please wait for the next update',
-          //       snackPosition: SnackPosition.TOP,
-          //       backgroundColor: Colors.orange,
-          //       colorText: Colors.white,
-          //       duration: const Duration(seconds: 2),
-          //     );
-          //   },
-          // ),
           ProfileMenu(
             text: "About us",
             icon: "assets/icons/Question mark.svg",

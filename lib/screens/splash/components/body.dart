@@ -19,15 +19,16 @@ class _BodyState extends State<Body> {
   int currentPage = 0;
   List<Map<String, String>> splashData = [
     {
-      "text": "Welcome to AR-Shop, Let’s shop!",
+      "text": "Perbaiki perangkat Anda dengan layanan PlsFixTech",
       "image": "assets/images/splash_1.png"
     },
     {
-      "text": "We help people conect with store \naround Indonesia",
+      "text": "Solusi cepat dan efisien dengan layanan PlsFixTech",
       "image": "assets/images/splash_2.png"
     },
     {
-      "text": "We show the easy way to shop. \nJust stay at home with us",
+      "text":
+          "Perbaiki perangkat Anda dengan mudah, hanya dengan berada di rumah bersama PlsFixTech",
       "image": "assets/images/splash_3.png"
     },
   ];
