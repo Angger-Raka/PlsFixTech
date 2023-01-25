@@ -110,20 +110,32 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
                 try {
                   await FirebaseAuth.instance
                       .sendPasswordResetEmail(email: emailjadi);
+                  Future.delayed(const Duration(seconds: 1), () {
+                    Get.snackbar(
+                      'Email sent link reset password',
+                      'Check your email for a link, see on your inbox or spam folder and login again',
+                      snackPosition: SnackPosition.TOP,
+                      backgroundColor: Colors.orange,
+                      colorText: Colors.white,
+                      duration: const Duration(seconds: 5),
+                    );
+                  });
+                  Get.offAllNamed(SignInScreen.routeName);
                 } on FirebaseAuthException catch (e) {
-                  print(e.message.toString());
-                }
-                Future.delayed(const Duration(seconds: 1), () {
                   Get.snackbar(
-                    'Email sent link reset password',
-                    'Check your email for a link, see on your inbox or spam folder and login again',
+                    'Error',
+                    e.message.toString() == "Given String is empty or null"
+                        ? "Email address is empty"
+                        : e.message.toString() ==
+                                "There is no user record corresponding to this identifier. The user may have been deleted."
+                            ? "Email not found"
+                            : e.message.toString(),
                     snackPosition: SnackPosition.TOP,
-                    backgroundColor: Colors.orange,
+                    backgroundColor: Colors.red,
                     colorText: Colors.white,
                     duration: const Duration(seconds: 5),
                   );
-                });
-                Get.offAllNamed(SignInScreen.routeName);
+                }
                 // Do what you want to do
               }
             },

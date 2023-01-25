@@ -27,7 +27,7 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 const Text(
-                  "Sign in with your email and password  \nor continue with social media",
+                  "Sign in with your email and password",
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
@@ -35,7 +35,7 @@ class Body extends StatelessWidget {
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
                 SizedBox(height: getProportionateScreenHeight(20)),
                 InkWell(
-                  child: const Text('Login as Anonymous'),
+                  child: const Text('Login as Guest'),
                   onTap: () {
                     // if (FirebaseAuth.instance.currentUser == null) {
                     //   FirebaseAuth.instance.signInAnonymously();

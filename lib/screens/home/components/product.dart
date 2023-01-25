@@ -70,7 +70,7 @@ List cardList = [
     ),
     name: "Cleaning and Repaste",
     discription:
-        "A service designed to clean dust and dirt from electronic device components, such as PCs and laptops and repaste thermal paste to improve heat dissipation and increase the performance of the device. This service can improve device performance, reduce the risk of damage and extend the lifespan of the device.",
+        "layanan yang menyediakan membersihkan perangkat teknologi pelanggan dari debu dan kotoran yang dapat menyebabkan masalah teknis. Cleaning service dari PlsFixTech akan membuat perangkat anda bekerja lebih cepat dan lebih stabil, dan akan memperpanjang umur perangkat anda. Jangan biarkan kinerja perangkat Anda turun karena debu dan kotoran, layani perangkat Anda dengan jasa Cleaning dari PlsFixTech sekarang.",
     nameRoute: ProductFormScreen.routeName,
   ),
   Product(
@@ -80,7 +80,7 @@ List cardList = [
     ),
     name: "Repair",
     discription:
-        "A repair service that aims to fix issues on electronic devices, such as hardware or software problems. This service can repair physical damage, such as a broken screen, and software issues, such as viruses or performance problems.",
+        "layanan yang menyediakan perbaikan pada perangkat teknologi pelanggan yang rusak atau tidak berfungsi dengan baik. Kami menyediakan perbaikan pada perangkat keras seperti motherboard, hard drive, atau komponen lainnya, serta perbaikan pada perangkat lunak seperti sistem operasi, driver, dan perangkat lunak aplikasi.",
     nameRoute: ProductFormScreen.routeName,
   ),
   Product(
@@ -90,7 +90,7 @@ List cardList = [
     ),
     name: "Upgrade",
     discription:
-        "A service to enhance the performance of electronic devices by replacing components such as RAM, hard drive, or graphics card. This service can increase the capabilities of the device and make it faster and more responsive.",
+        "layanan yang menyediakan upgrade perangkat keras seperti menambahkan memory, mengganti hard drive, atau meng-upgrade komponen lainnya pada perangkat teknologi pelanggan. Layanan ini dapat membantu perangkat Anda untuk bekerja lebih cepat dan lebih baik, serta dapat meningkatkan kapasitas penyimpanan dan kinerja dari perangkat Anda.",
     nameRoute: ProductFormScreen.routeName,
   ),
   Product(
