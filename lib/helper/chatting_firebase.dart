@@ -163,7 +163,7 @@ class DatabaseService {
   static void createUserProfile(
     String firstName,
     String lastName,
-    String phone,
+    int phone,
     String address,
   ) {
     final FirebaseAuth auth = FirebaseAuth.instance;

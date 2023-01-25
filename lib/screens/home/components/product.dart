@@ -2,6 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:firebase_chatting/screens/product_form/product_form_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../../models/components/default_button.dart';
+
 class Product extends StatelessWidget {
   const Product({
     Key? key,
@@ -24,8 +26,9 @@ class Product extends StatelessWidget {
           width: 200,
           height: 500,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              Spacer(),
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: image,
@@ -40,14 +43,22 @@ class Product extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: Center(child: Text(discription)),
+                child: Center(
+                  child: Text(discription, textAlign: TextAlign.center),
+                ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, nameRoute);
-                },
-                child: const Text("PESAN SEKARANG"),
+              Spacer(),
+              Container(
+                height: 50,
+                width: 200,
+                child: DefaultButton(
+                  text: "Order",
+                  press: () {
+                    Navigator.pushNamed(context, nameRoute);
+                  },
+                ),
               ),
+              Spacer()
             ],
           )),
     );
@@ -66,41 +77,41 @@ List cardList = [
   Product(
     image: Image.asset(
       'assets/images/splash_1.png',
-      width: 130,
+      height: 100,
     ),
-    name: "Cleaning and Repaste",
+    name: "Cleaning",
     discription:
-        "layanan yang menyediakan membersihkan perangkat teknologi pelanggan dari debu dan kotoran yang dapat menyebabkan masalah teknis. Cleaning service dari PlsFixTech akan membuat perangkat anda bekerja lebih cepat dan lebih stabil, dan akan memperpanjang umur perangkat anda. Jangan biarkan kinerja perangkat Anda turun karena debu dan kotoran, layani perangkat Anda dengan jasa Cleaning dari PlsFixTech sekarang.",
+        "layanan yang menyediakan membersihkan perangkat pelanggan dari debu dan kotoran yang dapat menyebabkan masalah teknis.",
     nameRoute: ProductFormScreen.routeName,
   ),
   Product(
     image: Image.asset(
       'assets/images/splash_2.png',
-      width: 130,
+      height: 100,
     ),
     name: "Repair",
     discription:
-        "layanan yang menyediakan perbaikan pada perangkat teknologi pelanggan yang rusak atau tidak berfungsi dengan baik. Kami menyediakan perbaikan pada perangkat keras seperti motherboard, hard drive, atau komponen lainnya, serta perbaikan pada perangkat lunak seperti sistem operasi, driver, dan perangkat lunak aplikasi.",
+        "layanan yang menyediakan perbaikan pada perangkat pelanggan yang rusak atau tidak berfungsi dengan baik.",
     nameRoute: ProductFormScreen.routeName,
   ),
   Product(
     image: Image.asset(
       'assets/images/splash_3.png',
-      width: 130,
+      height: 100,
     ),
     name: "Upgrade",
     discription:
-        "layanan yang menyediakan upgrade perangkat keras seperti menambahkan memory, mengganti hard drive, atau meng-upgrade komponen lainnya pada perangkat teknologi pelanggan. Layanan ini dapat membantu perangkat Anda untuk bekerja lebih cepat dan lebih baik, serta dapat meningkatkan kapasitas penyimpanan dan kinerja dari perangkat Anda.",
+        "layanan yang menyediakan upgrade perangkat keras seperti menambahkan memory, hard drive, atau meng-upgrade komponen lainnya pada perangkat.",
     nameRoute: ProductFormScreen.routeName,
   ),
   Product(
     image: Image.asset(
       'assets/images/splash_2.png',
-      width: 130,
+      height: 100,
     ),
     name: "Trade-in",
     discription:
-        "layanan yang memungkinkan pelanggan untuk menukar perangkat lama mereka dengan perangkat baru. Pelanggan dapat mengirimkan perangkat lama mereka ke kami dan kami akan memberikan harga tukar tambah yang sesuai.",
+        "layanan yang memungkinkan pelanggan untuk menukar perangkat lama mereka dengan perangkat baru.",
     nameRoute: ProductFormScreen.routeName,
   ),
 ];
