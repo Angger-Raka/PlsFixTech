@@ -62,7 +62,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                   DatabaseService.createUserProfile(
                     firstName ?? "",
                     lastName ?? "",
-                    phoneNumber ?? "",
+                    int.parse((phoneNumber ?? "0")),
                     address ?? "",
                   );
                   Navigator.pushNamed(context, SignInScreen.routeName);
@@ -95,7 +95,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       },
       decoration: const InputDecoration(
         labelText: "Address",
-        hintText: "Enter your phone address",
+        hintText: "Enter your address",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -124,7 +124,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       },
       decoration: const InputDecoration(
         labelText: "Phone Number",
-        hintText: "Enter your phone number",
+        hintText: "Enter your phone",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
