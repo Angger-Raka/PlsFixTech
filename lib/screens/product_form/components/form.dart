@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:firebase_chatting/helper/chatting_firebase.dart';
+import 'package:firebase_chatting/models/components/default_button.dart';
 import 'package:firebase_chatting/screens/history/history_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -40,25 +41,40 @@ class _FormProductState extends State<FormProduct> {
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.black),
                       ),
-                      child: const Center(child: Text("No Image")),
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStatePropertyAll<Color>(Colors.white)),
+                        onPressed: () async {
+                          File file = await getImage();
+                          imagePath = await DatabaseService.uploadImage(file);
+                          setState(() {});
+                        },
+                        child: const Center(
+                          child: Text(
+                            "Klik untuk menambahkan gambar",
+                            style: TextStyle(fontSize: 14, color: Colors.black),
+                          ),
+                        ),
+                      ),
                     )),
           imagePath == null
-              ? ElevatedButton(
-                  onPressed: () async {
-                    File file = await getImage();
-                    imagePath = await DatabaseService.uploadImage(file);
-                    setState(() {});
-                  },
-                  child: const Text("Upload Image Here"),
-                )
-              : ElevatedButton(
-                  onPressed: () async {
-                    //delet image from storage firebase
-                    await DatabaseService.deleteImage(imagePath!);
-                    imagePath = null;
-                    setState(() {});
-                  },
-                  child: const Text("Remove Image"),
+              ? const SizedBox()
+              : Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: SizedBox(
+                    height: 40,
+                    width: 180,
+                    child: DefaultButton(
+                      text: "Hapus Gambar",
+                      press: () async {
+                        //delet image from storage firebase
+                        await DatabaseService.deleteImage(imagePath!);
+                        imagePath = null;
+                        setState(() {});
+                      },
+                    ),
+                  ),
                 ),
           const SizedBox(
             height: 20,
